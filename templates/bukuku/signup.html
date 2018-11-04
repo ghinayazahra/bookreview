@@ -1,0 +1,16 @@
+{% extends './base_generic.html' %}
+
+{% block content %}
+  <h2>Sign up</h2>
+
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="repeat_password" placeholder="Repeat Password">
+        <button type="submit">Sign up!</button>
+
+    </form>
+
+
+{% endblock %}

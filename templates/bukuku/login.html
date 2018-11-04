@@ -1,0 +1,36 @@
+{% extends './base_generic.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col">
+                <h2>Sign up</h2>
+            </div>
+
+            <div class="col col-12">
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <h5>User name:</h5>
+                    </div>
+                    <div class="row">
+                        <input class="form-control" type="text" name="username"><br>
+                    </div>
+
+                    <div class="row">
+                        <h5>User password:</h5>
+                    </div>
+                    <div class="row">
+                        <input class="form-control" type="password" name="psw">
+                    </div>
+
+                    <div class="row">
+                        <button class="btn btn-success" type="submit">
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

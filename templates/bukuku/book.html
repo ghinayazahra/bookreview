@@ -1,0 +1,63 @@
+{% extends './base_generic.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col">
+                <h3> Title:
+                   {{  book.title }}
+                </h3>
+
+                <h5> Author:
+                    {{  book.author }}
+                </h5>
+
+                <h5> Summary:
+                    {{ book.summary }}
+                </h5>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row ">
+
+                <h5>
+                    Reviews:
+                </h5>
+                <ul>
+                    {% for review in book.review_set.all %}
+                <li>
+                <h5>By:
+                    {{ review.writer }}
+                </h5>
+                <h5>Review:
+                    {{ review.review }}
+                </h5>
+                </li>
+            {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+
+    <div class="container">
+        <div class="row ">
+
+        <form action="{% url 'book' book.id %}" method="post">
+        {% csrf_token %}
+        <textarea name="review" id="" cols="30" rows="10"></textarea>
+        <button type="submit">Submit Review</button>
+
+    </form>
+
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+{% endblock %}
